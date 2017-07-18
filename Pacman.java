@@ -37,15 +37,14 @@ public class Pacman extends Polkadot
          setY(getY() - 5);
       }
       else if (dir.equals("down")){
-            //System.out.println("hi");
          setY(getY() + 5);
       }
       else if (dir.equals("right")){
-            //System.out.println("hi");
+
          setX(getX() + 5);
       }
       else if (dir.equals("left")){
-            //System.out.println("hi");
+
          setX(getX() - 5);
       }
       if (getX() > maxX){
