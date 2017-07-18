@@ -11,7 +11,7 @@ public class Driver
    { 
       JFrame frame = new JFrame("Pacman Demo");
       frame.setSize(808, 838);   
-      frame.setLocation(0, 0);
+      frame.setLocation(200, 0);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       DemoPanel p = new DemoPanel();
       frame.setContentPane(p);

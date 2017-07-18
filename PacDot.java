@@ -44,7 +44,6 @@ public class PacDot extends Polkadot
                int  red   = (clr & 0x00ff0000) >> 16;
                int  green = (clr & 0x0000ff00) >> 8;
                int  blue  =  clr & 0x000000ff;
-               // if (bi.getRGB(x, y) > -16777216){
                if (blue > 247){ //Found through testing, varies based on img 
                   return true;
                }
