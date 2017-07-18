@@ -26,6 +26,7 @@ public class DemoPanel extends JPanel {
   private int score = 0;
   private boolean game_ended = false; //Game condition test
   private boolean you_won = false;
+  private int MAX_SCORE = 192;
 
 
 
@@ -106,11 +107,13 @@ public class DemoPanel extends JPanel {
 
   private class Listener implements ActionListener { //Called with the Timer
     public void actionPerformed(ActionEvent e) {
-      if (score == 192) { //Maximum score
+      if (score == MAX_SCORE) { //Maximum score
         game_ended = true;
         you_won = true;
         t.stop();
-      } else {
+      } 
+      
+      else {
         for (int i = 0; i < ghosts.length; i++) { //Test if any of the ghosts collide with pacman
           if (ghosts[i].collide_with_pacman(pacman)) { //If so, end the game and stop the timer
             game_ended = true;
