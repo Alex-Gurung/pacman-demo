@@ -25,6 +25,7 @@ public class DemoPanel extends JPanel {
   private PacDot[] pacdots = new PacDot[192];
   private int score = 0;
   private boolean game_ended = false; //Game condition test
+  private boolean you_won = false;
 
 
 
@@ -106,82 +107,86 @@ public class DemoPanel extends JPanel {
   private class Listener implements ActionListener { //Called with the Timer
     public void actionPerformed(ActionEvent e) {
       if (score == 192) { //Maximum score
-         game_ended = true;
-          t.stop();
-      } 
-        else {
-          for (int i = 0; i < ghosts.length; i++) { //Test if any of the ghosts collide with pacman
-            if (ghosts[i].collide_with_pacman(pacman)) { //If so, end the game and stop the timer
-              game_ended = true;
-              t.stop();
-              break;
-            }
+        game_ended = true;
+        you_won = true;
+        t.stop();
+      } else {
+        for (int i = 0; i < ghosts.length; i++) { //Test if any of the ghosts collide with pacman
+          if (ghosts[i].collide_with_pacman(pacman)) { //If so, end the game and stop the timer
+            game_ended = true;
+            t.stop();
+            break;
           }
         }
-
-        if (!game_ended) { //If the game hasn't been ended
-          if (image != null) { //Make sure the background image isn't null (it shouldn't ever be if the file is there)
-            myBuffer.drawImage(image, 0, 0, (int) FRAME1, (int) FRAME2, null);
-          }
-          for (int i = 0; i < ghosts.length; i++) { //Move all of the ghosts (move method in ghost class)
-            ghosts[i].move(comp_image, FRAME1, FRAME2);
-          }
-          for (int i = 0; i < pacdots.length; i++) { //Draw all of the pac-dots, and check for collisions with pacman
-            if (pacdots[i] != null) {
-              boolean collided = pacdots[i].collide_with_pacman(pacman);
-              if (collided) {
-                score++;
-              }
-              pacdots[i].draw(myBuffer, FRAME2);
-            }
-          }
-          pacman.draw(myBuffer, FRAME2); //Draw pacman and the ghosts
-
-          clyde.draw(myBuffer, FRAME2);
-          blinky.draw(myBuffer, FRAME2);
-          inky.draw(myBuffer, FRAME2);
-          pinky.draw(myBuffer, FRAME2);
-
-
-
-          myBuffer.setFont(new Font("Lucida Bright", Font.PLAIN, 9)); //Display some basic information
-          myBuffer.setColor(Color.WHITE);
-          myBuffer.drawString("P a c m a n", 10, 19); //Letter spacing is for legibility
-          myBuffer.drawString("S c o r e : " + score, (int) FRAME1 / 2 + 10, 19);
-
-        } else { //The game has been ended, display some information (like score and how to replay)
-          myBuffer.setColor(Color.BLACK);
-          myBuffer.clearRect(0, 0, FRAME1, FRAME2);
-          myBuffer.setFont(new Font("Lucida Bright", Font.PLAIN, 10));
-          myBuffer.setColor(Color.WHITE);
-          myBuffer.drawString("G a m e  O v e r ", 10, 50); //Letter spacing is for legibility
-          myBuffer.drawString("S c o r e : " + score, (int) FRAME1 / 2 + 10, 50);
-          myBuffer.drawString("T o  R e p l a y , p r e s s  S p a c e", (int) FRAME1 / 6, FRAME2 / 2);
-        }
-        repaint();
       }
+
+      if (!game_ended) { //If the game hasn't been ended
+        if (image != null) { //Make sure the background image isn't null (it shouldn't ever be if the file is there)
+          myBuffer.drawImage(image, 0, 0, (int) FRAME1, (int) FRAME2, null);
+        }
+        for (int i = 0; i < ghosts.length; i++) { //Move all of the ghosts (move method in ghost class)
+          ghosts[i].move(comp_image, FRAME1, FRAME2);
+        }
+        for (int i = 0; i < pacdots.length; i++) { //Draw all of the pac-dots, and check for collisions with pacman
+          if (pacdots[i] != null) {
+            boolean collided = pacdots[i].collide_with_pacman(pacman);
+            if (collided) {
+              score++;
+            }
+            pacdots[i].draw(myBuffer, FRAME2);
+          }
+        }
+        pacman.draw(myBuffer, FRAME2); //Draw pacman and the ghosts
+
+        clyde.draw(myBuffer, FRAME2);
+        blinky.draw(myBuffer, FRAME2);
+        inky.draw(myBuffer, FRAME2);
+        pinky.draw(myBuffer, FRAME2);
+
+
+
+        myBuffer.setFont(new Font("Lucida Bright", Font.PLAIN, 9)); //Display some basic information
+        myBuffer.setColor(Color.WHITE);
+        myBuffer.drawString("P a c m a n", 10, 19); //Letter spacing is for legibility
+        myBuffer.drawString("S c o r e : " + score, (int) FRAME1 / 2 + 10, 19);
+
+      } else { //The game has been ended, display some information (like score and how to replay)
+        myBuffer.setColor(Color.BLACK);
+        myBuffer.clearRect(0, 0, FRAME1, FRAME2);
+        myBuffer.setFont(new Font("Lucida Bright", Font.PLAIN, 10));
+        myBuffer.setColor(Color.WHITE);
+        if (you_won) {
+          myBuffer.drawString("Y o u  W o n ! ! ! ", 10, 50); //Letter spacing is for legibility
+        } else {
+          myBuffer.drawString("Y o u  L o s t :( ", 10, 50); //Letter spacing is for legibility
+        }
+        myBuffer.drawString("S c o r e : " + score, (int) FRAME1 / 2 + 10, 50);
+        myBuffer.drawString("T o  R e p l a y , p r e s s  S p a c e", (int) FRAME1 / 6, FRAME2 / 2);
+      }
+      repaint();
     }
+  }
 
-    private class keysListener extends KeyAdapter { //When a key is pressed
+  private class keysListener extends KeyAdapter { //When a key is pressed
 
-      public void keyPressed(KeyEvent e) {
-        int key_code = e.getKeyCode(); //Get key code (makes rest of code more readable)
-        if (!game_ended) {
-          if (key_code == KeyEvent.VK_UP) { //If up arrow, move pacman up (just changes their coord)
-            pacman.move("up", image, FRAME1, FRAME2);
-          } else if (key_code == KeyEvent.VK_DOWN) { //If down arrow, move pacman down
-            pacman.move("down", image, FRAME1, FRAME2);
-          } else if (key_code == KeyEvent.VK_RIGHT) { //etc.
-            pacman.move("right", image, FRAME1, FRAME2);
-          } else if (key_code == KeyEvent.VK_LEFT) { //etc.
-            pacman.move("left", image, FRAME1, FRAME2);
-          }
-        }
-        if (game_ended && key_code == KeyEvent.VK_SPACE) { //If the game has ended, and spacebar has been pressed, reset everything
-          resetGame();
+    public void keyPressed(KeyEvent e) {
+      int key_code = e.getKeyCode(); //Get key code (makes rest of code more readable)
+      if (!game_ended) {
+        if (key_code == KeyEvent.VK_UP) { //If up arrow, move pacman up (just changes their coord)
+          pacman.move("up", image, FRAME1, FRAME2);
+        } else if (key_code == KeyEvent.VK_DOWN) { //If down arrow, move pacman down
+          pacman.move("down", image, FRAME1, FRAME2);
+        } else if (key_code == KeyEvent.VK_RIGHT) { //etc.
+          pacman.move("right", image, FRAME1, FRAME2);
+        } else if (key_code == KeyEvent.VK_LEFT) { //etc.
+          pacman.move("left", image, FRAME1, FRAME2);
         }
       }
-
+      if (game_ended && key_code == KeyEvent.VK_SPACE) { //If the game has ended, and spacebar has been pressed, reset everything
+        resetGame();
+      }
     }
 
   }
+
+}
