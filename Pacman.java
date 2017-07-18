@@ -23,8 +23,7 @@ public class Pacman extends Polkadot
    public void draw(Graphics myBuffer, int bottomEdge) 
    {
       
-      String file_name = "pacman_" + direction+".png"; //Filenames are in format pacman_direction.png (e.g. pacman_left.png)
-      
+      String file_name = "pacman_" + direction+"_2.png"; //Filenames are in format pacman_direction.png (e.g. pacman_left.png)
       ImageIcon pacman = new ImageIcon(file_name);
       myBuffer.drawImage(pacman.getImage(), (int)getX(), (int)getY(), (int)getDiameter(), (int)getDiameter(), null); 
    }

@@ -105,11 +105,11 @@ public class DemoPanel extends JPanel {
 
   private class Listener implements ActionListener { //Called with the Timer
     public void actionPerformed(ActionEvent e) {
-      if (score == 192) {
+      if (score == 192) { //Maximum score
          game_ended = true;
           t.stop();
-          
-        } else {
+      } 
+        else {
           for (int i = 0; i < ghosts.length; i++) { //Test if any of the ghosts collide with pacman
             if (ghosts[i].collide_with_pacman(pacman)) { //If so, end the game and stop the timer
               game_ended = true;
