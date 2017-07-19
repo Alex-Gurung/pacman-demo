@@ -84,33 +84,33 @@ for (int i = 0; i < ghosts.length; i++) { //Test if any of the ghosts collide wi
 
 ## What do these files do?
 ### Coded files
-* `DemoPanel.java` - Actual display of the game, extends JPanel
+* [`DemoPanel.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/DemoPanel.java) - Actual display of the game, extends JPanel
     * Contains overall game logic and display, as well as listeners for user and timer based input
-* `Driver.java`
+* [`Driver.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/Driver.java)
     * Standard driver, creates a JFrame and puts a DemoPanel inside
-* `Ghost.java`
+* [`Ghost.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/Ghost.java)
     * Contains the Ghost class, which extends polkadot
     * Ghost knows everything polkadot does, as well as its name, how to draw itself, how to move around, and how to test for wall and pacman collisions
-* `PacDot.java`
+* [`PacDot.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/PacDot.java)
     * Contains the PacDot class, which also extends polkadot
     * Very barebones additions, but has specific collision and drawing methods
-* `Pacman.java`
+* [`Pacman.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/Pacman.java)
     * Pacman class, extends polkadot
     * Similar to Ghost, but moves differently and draws itself with a different image (object collisions also aren't handled here, only image collisions)
-* `Polkadot.java`
+* [`Polkadot.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/Polkadot.java)
     * You've seen this file before, basic class for drawing a polkadot
 ### Jar files
-* `Pacman.jar`
+* [`Pacman.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/Pacman.java)
     * Standard gameplay, ghosts move randomly but continue in the same direction if unblocked
 ### Folders
-* `characters`
+* [`characters`](https://github.com/Alex-Gurung/pacman-demo/tree/master/characters)
     * Contains the image files for ghosts and pacman
-* `maps`
+* [`maps`](https://github.com/Alex-Gurung/pacman-demo/tree/master/characters)
     * Contains the different map files (the blue rectangles were added in different locations depending on use case)
 ### Miscellaneous files (don't worry about these, they aren't necessary)
-* `.gitignore`
+* [`.gitignore`](https://github.com/Alex-Gurung/pacman-demo/blob/master/.gitignore)
     * For uploading (_"pushing"_) purposes, ignores `.class` files
-* `LICENSE`
+* [`LICENSE`](https://github.com/Alex-Gurung/pacman-demo/blob/master/LICENSE)
     * Standard practice for github repositories, don't worry about it
-* `compile.bat`
+* [`compile.bat`](https://github.com/Alex-Gurung/pacman-demo/blob/master/compile.bat)
     * For my purposes, on Windows this will compile every `.java` file in a directory
