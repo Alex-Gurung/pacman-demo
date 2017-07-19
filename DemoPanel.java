@@ -36,9 +36,9 @@ public class DemoPanel extends JPanel {
     myImage = new BufferedImage(FRAME1, FRAME2, BufferedImage.TYPE_INT_RGB);
     myBuffer = myImage.getGraphics();
     try { //Tries to find the images and instantiate the objects, the exception is in case the files aren't found
-      image = ImageIO.read(new File("pacman_map.png"));
-      comp_image = ImageIO.read(new File("pacman_new_ghost_map.png"));
-      dots_image = ImageIO.read(new File("pacman_map_dots_3.png"));
+      image = ImageIO.read(new File("maps/pacman_map.png"));
+      comp_image = ImageIO.read(new File("maps/pacman_ghost_map.png"));
+      dots_image = ImageIO.read(new File("maps/pacman_map_dots.png"));
     } catch (IOException i) {
       System.out.println("couldn't get map");
     }

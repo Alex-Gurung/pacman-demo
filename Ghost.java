@@ -28,7 +28,7 @@ public class Ghost extends Polkadot {
       }
       public void draw(Graphics myBuffer, int bottomEdge) {
 
-            String file_name = name + ".png"; //image files follow name.png format
+            String file_name = "characters/" + name + ".png"; //image files follow name.png format
 
             ImageIcon ghost = new ImageIcon(file_name); //Create an image icon, and draw it
             myBuffer.drawImage(ghost.getImage(), (int) getX(), (int) getY(), (int) getDiameter(), (int) getDiameter(), null);
