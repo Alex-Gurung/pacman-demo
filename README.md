@@ -100,7 +100,7 @@ for (int i = 0; i < ghosts.length; i++) { //Test if any of the ghosts collide wi
 * [`Polkadot.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/Polkadot.java)
     * You've seen this file before, basic class for drawing a polkadot
 ### Jar files (not needed for the code to work, but useful)
-* [`Pacman.jar`](https://github.com/Alex-Gurung/pacman-demo/blob/master/Pacman.jar)
+* [`Pacman.jar`](https://github.com/Alex-Gurung/pacman-demo/blob/master/Pacman.Jar)
     * Standard gameplay, ghosts move randomly but continue in the same direction if unblocked
 ### Folders
 * [`characters`](https://github.com/Alex-Gurung/pacman-demo/tree/master/characters)
