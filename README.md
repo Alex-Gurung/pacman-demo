@@ -14,7 +14,7 @@ boolean collided =  getX() < pac.getX() + pac.getDiameter() && getX() + getDiame
 (It should be noted that the coordinate system places (0,0) at the top left, and that both the current class and pac are rectangles)
 
 Object to image is a little more complicated. The pixels of the object in question, which could be either a pac-dot, pacman, or ghost, are iterated over and tested against the pixels of the `BufferedImage`. After getting the RGB value for that pixel, [bitwise operators](https://www.tutorialspoint.com/java/java_basic_operators.htm) are used to convert it into red, green, and blue values from 0 to 255. Testing showed that the walls had a blue of 248, so that value was used as a test case for collision.
-##### `PacDot.java` (but similar collision methods are also found in `Ghost.java` and `Pacman.java`)
+##### [`PacDot.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/PacDot.java) (but similar collision methods are also found in `Ghost.java` and `Pacman.java`)
 ``` java
 public boolean collide_with_wall(BufferedImage bi, int maxX, int maxY){ //Test if collided with a wall
       for (int x = (int)getX(); x<= (int)(getX()+getDiameter()); x++){ //Iterate over the dot's surface, test if the background image's pixels are from the wall
@@ -42,7 +42,7 @@ This implementation has two major benefits:`
 
 ## User Controls
 User controls in this version of pacman are pretty simple. The arrow keys control pacman's movement, and all other events are controlled by a timer. In the case that the game has ended, the spacebar will restart. This is accomplished with Event Listeners, a sample of which is found below (all listener code is found in `DemoPanel.java`)
-##### `DemoPanel.java`
+##### [`DemoPanel.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/DemoPanel.java)
 ``` java
 public DemoPanel() {
     (...)
@@ -60,7 +60,7 @@ private class keysListener extends KeyAdapter { //When a key is pressed
 
 ## Game Completion
 This version of Pacman is completed in two ways: either you run into a ghost, or you pick up all of the pac-dots. As there is a known number of pac-dots, that case can be tested for directly:
-##### `DemoPanel.java`
+##### [`DemoPanel.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/DemoPanel.java)
 ``` java
 (...)
 if (score == MAX_SCORE) { //Maximum score
@@ -71,7 +71,7 @@ if (score == MAX_SCORE) { //Maximum score
 (...)
 ```
 Ghost collisions are slightly more complex, but as we have access to their collision method from `DemoPanel.java` we can iterate over the `ghosts` array and test if any of them are currently colliding with pacman.
-##### `DemoPanel.java`
+##### [`DemoPanel.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/DemoPanel.java)
 ``` java
 for (int i = 0; i < ghosts.length; i++) { //Test if any of the ghosts collide with pacman
     if (ghosts[i].collide_with_pacman(pacman)) { //If so, end the game and stop the timer
