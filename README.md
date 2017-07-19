@@ -20,10 +20,10 @@ public boolean collide_with_wall(BufferedImage bi, int maxX, int maxY){ //Test i
       for (int x = (int)getX(); x<= (int)(getX()+getDiameter()); x++){ //Iterate over the dot's surface, test if the background image's pixels are from the wall
          for (int y = (int)getY(); y<= (int)(getY()+getDiameter()); y++){
             if (x < maxX && y < maxY && x >= 0 && y>= 0){
-               int clr=  bi.getRGB(x,y);  //Converts buffered img to rgb int, then converted into red, green, and blue values (0-255)
-               int  red   = (clr & 0x00ff0000) >> 16;
-               int  green = (clr & 0x0000ff00) >> 8;
-               int  blue  =  clr & 0x000000ff;
+               int clr   =  bi.getRGB(x,y);  //Converts buffered img to rgb int, then converted into red, green, and blue values (0-255)
+               int red   = (clr & 0x00ff0000) >> 16;
+               int green = (clr & 0x0000ff00) >> 8;
+               int blue  =  clr & 0x000000ff;
                if (blue > 247){ //Found through testing, varies based on img 
                   return true;
                }
@@ -65,7 +65,7 @@ This version of Pacman is completed in two ways: either you run into a ghost, or
 (...)
 if (score == MAX_SCORE) { //Maximum score
     game_ended = true;
-    you_won = true;
+    you_won    = true;
     t.stop(); //Stop timer (prevents repainting)
 } 
 (...)
