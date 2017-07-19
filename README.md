@@ -99,7 +99,7 @@ for (int i = 0; i < ghosts.length; i++) { //Test if any of the ghosts collide wi
     * Similar to Ghost, but moves differently and draws itself with a different image (object collisions also aren't handled here, only image collisions)
 * [`Polkadot.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/Polkadot.java)
     * You've seen this file before, basic class for drawing a polkadot
-### Jar files
+### Jar files (not needed for the code to work, but useful)
 * [`Pacman.java`](https://github.com/Alex-Gurung/pacman-demo/blob/master/Pacman.java)
     * Standard gameplay, ghosts move randomly but continue in the same direction if unblocked
 ### Folders
@@ -107,10 +107,12 @@ for (int i = 0; i < ghosts.length; i++) { //Test if any of the ghosts collide wi
     * Contains the image files for ghosts and pacman
 * [`maps`](https://github.com/Alex-Gurung/pacman-demo/tree/master/characters)
     * Contains the different map files (the blue rectangles were added in different locations depending on use case)
-### Miscellaneous files (don't worry about these, they aren't necessary)
+### Miscellaneous files (don't worry about these, they aren't necessary for the code to work)
 * [`.gitignore`](https://github.com/Alex-Gurung/pacman-demo/blob/master/.gitignore)
     * For uploading (_"pushing"_) purposes, ignores `.class` files
 * [`LICENSE`](https://github.com/Alex-Gurung/pacman-demo/blob/master/LICENSE)
     * Standard practice for github repositories, don't worry about it
 * [`compile.bat`](https://github.com/Alex-Gurung/pacman-demo/blob/master/compile.bat)
     * For my purposes, on Windows this will compile every `.java` file in a directory
+* [`README.md`](https://github.com/Alex-Gurung/pacman-demo/blob/master/README.md)
+    * That's this file!
