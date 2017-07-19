@@ -1,5 +1,6 @@
 # pacman-demo
-Demo for Game Physics, Enemy Behaviour, and Game Completion for TJHSST Summer Computer Science 2017. This demo is a simplified Java version of Pacman, used to show possible implementations of enemy behaviour, collision detection, user controls, and game completion.
+## What is this?
+This is a demo for _Game Physics, Enemy Behaviour, and Game Completion_ for TJHSST Summer Computer Science 2017. It's a simplified Java version of Pacman, used to show possible implementations of enemy behaviour, collision detection, user controls, and game completion.
 
 ## Enemy Behaviour
 Ghost in this version of pacman have a variety of possible behaviours, the current one being a random movement with momentum, meaning that once a direction has been chosen the ghost will continue in that direction until it collides with something. Other options include truly random movement and a follower that tries to align itself with the pacman while possible. (Behaviours are intentionally somewhat simple both for quick demonstration purposes and for ease of comprehension)
@@ -36,7 +37,7 @@ public boolean collide_with_wall(BufferedImage bi, int maxX, int maxY){ //Test i
    }
 ```
 
-This implementation has two major benefits:`
+This implementation has two major benefits:
 1. It's (relatively) easy to do. Instead of creating a series of wall objects to represent each section you can just modify the background image to get the required effect. This also means that slightly different effects for different objects are easy to generate by switching out the image. For example, in this version of pacman the ghosts aren't allowed down the corridor. Instead of having to create a different set of objects, they simply use a different image! (in this case `maps/pacman_map_comp.png` is used by pacman and `maps/pacman_new_ghost_map` is used by ghosts).
 2. It's quicker, both in creation/modification time and on run. If you were to create an array of wall objects you would have to iterate over each one and check if it was colliding with the pacman. The image method, in contrast, only has to check the values that the pacman itself covers, which is more intuitive from a programming perspective and faster.
 
