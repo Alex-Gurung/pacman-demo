@@ -81,3 +81,36 @@ for (int i = 0; i < ghosts.length; i++) { //Test if any of the ghosts collide wi
     }
 }
 ```
+
+## What do these files do?
+### Coded files
+* `DemoPanel.java` - Actual display of the game, extends JPanel
+    * Contains overall game logic and display, as well as listeners for user and timer based input
+* `Driver.java`
+    * Standard driver, creates a JFrame and puts a DemoPanel inside
+* `Ghost.java`
+    * Contains the Ghost class, which extends polkadot
+    * Ghost knows everything polkadot does, as well as its name, how to draw itself, how to move around, and how to test for wall and pacman collisions
+* `PacDot.java`
+    * Contains the PacDot class, which also extends polkadot
+    * Very barebones additions, but has specific collision and drawing methods
+* `Pacman.java`
+    * Pacman class, extends polkadot
+    * Similar to Ghost, but moves differently and draws itself with a different image (object collisions also aren't handled here, only image collisions)
+* `Polkadot.java`
+    * You've seen this file before, basic class for drawing a polkadot
+### Jar files
+* `Pacman.jar`
+    * Standard gameplay, ghosts move randomly but continue in the same direction if unblocked
+### Folders
+* `characters`
+    * Contains the image files for ghosts and pacman
+* `maps`
+    * Contains the different map files (the blue rectangles were added in different locations depending on use case)
+### Miscellaneous files (don't worry about these, they aren't necessary)
+* `.gitignore`
+    * For uploading (_"pushing"_) purposes, ignores `.class` files
+* `LICENSE`
+    * Standard practice for github repositories, don't worry about it
+* `compile.bat`
+    * For my purposes, on Windows this will compile every `.java` file in a directory
